@@ -9,6 +9,12 @@
 module.exports = function(grunt) {
   'use strict';
 
+  var Path = {
+    TESTS: 'test/*_test.js',
+    LOCALES: 'test/sample/**/locales',
+    BUILD_PATH: 'test/sample/languages'
+  };
+
   // Project configuration.
   grunt.initConfig({
     pkg: '<json:package.json>',
@@ -29,9 +35,16 @@ module.exports = function(grunt) {
       test: ['tmp']
     },
 
+    i18next: {
+      locales:{
+        src: [Path.LOCALES],
+        dest: Path.BUILD_PATH
+      }
+    },
+
     // Unit tests.
     nodeunit: {
-      tests: ['test/*_test.js']
+      tests: [Path.TESTS]
     }
   });
 
