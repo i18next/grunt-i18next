@@ -1,9 +1,41 @@
 {
-  "name": "grunt-contrib-i18n",
+  "name": "grunt-contrib-i18next",
+  "description": "Bundles resource files.",
   "version": "0.0.1",
+  "homepage": "https://github.com/sabarasaba/grunt-contrib-i18next",
+  "author": {
+    "name": "Ignacio Rivas",
+    "url": "http://github.com/sabarasaba"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/sabarasaba/grunt-contrib-i18next.git"
+  },
+  "bugs": {
+    "url": "https://github.com/sabarasaba/grunt-contrib-i18next/issues"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://github.com/sabarasaba/grunt-contrib-i18next/blob/master/LICENSE-MIT"
+    }
+  ],
+  "engines": {
+    "node": ">= 0.8.0"
+  },
+  "scripts": {
+    "test": "grunt test"
+  },
   "devDependencies": {
-    "grunt": "~0.4.1",
-    "grunt-contrib-jshint": "0.6.4",
-    "grunt-contrib-uglify": "~0.2.4"
-  }
+    "grunt-contrib-jshint": "~0.6.2",
+    "grunt-contrib-clean": "~0.5.0",
+    "grunt": "~0.4.0"
+  },
+  "peerDependencies": {
+    "grunt": "~0.4.0"
+  },
+  "keywords": [
+    "gruntplugin",
+    "i18next"
+  ]
 }
