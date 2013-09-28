@@ -9,6 +9,10 @@ Session.vim
 /*.sublime-project
 *.sublime-workspace
 
+# -- Build files -----------------------------
+
+/test/sample/languages
+
 # -- NodeJS files ----------------------------
 /build/
 /node_modules/
