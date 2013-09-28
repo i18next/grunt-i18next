@@ -1,15 +1,16 @@
 /*
- * grunt-arialinter
- * https://github.com/globant-ui/arialinter
+ * grunt-contrib-i18next
+ * http://gruntjs.com/
  *
- * Copyright (c) 2012 Globant UI Developers
+ * Copyright (c) 2013 Ignacio Rivas
  * Licensed under the MIT license.
+ * https://github.com/sabarasaba/grunt-contrib-i18next/blob/master/LICENSE-MIT
  */
 
 module.exports = function(grunt) {
   'use strict';
 
-  grunt.registerMultiTask('buildLocales', 'Build Locale files.', function() {
+  grunt.registerMultiTask('i18next', 'Build locale files.', function() {
     var that = this,
         len = this.filesSrc.length,
         outputDir,
