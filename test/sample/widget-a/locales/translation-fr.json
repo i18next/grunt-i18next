@@ -1,0 +1,10 @@
+{
+  "widget-a": {
+    "title": "Activités",
+    "has_been": "a été ",
+    "completed": "terminé",
+    "added": "ajoutée",
+    "deleted": "supprimé",
+    "reopened": "rouverte"
+  }
+}

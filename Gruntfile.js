@@ -32,7 +32,7 @@ module.exports = function(grunt) {
 
     // Before generating any new files, remove any previously-created files.
     clean: {
-      test: ['tmp']
+      test: [Path.BUILD_PATH]
     },
 
     i18next: {
