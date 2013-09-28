@@ -1,67 +1,52 @@
+/*
+ * grunt-contrib-i18next
+ * http://gruntjs.com/
+ *
+ * Copyright (c) 2013 Ignacio Rivas
+ * Licensed under the MIT license.
+ */
+
 module.exports = function(grunt) {
   'use strict';
 
-  var Path = {
-    LIB: 'src/**/*.js',
-    SPECS: 'tests/*.spec.js'
-  };
-
+  // Project configuration.
   grunt.initConfig({
-    pkg: grunt.file.readJSON('package.json'),
+    pkg: '<json:package.json>',
 
-    // js linting options
     jshint: {
-      all: ['Gruntfile.js', Path.LIB],
-      jshintrc: '.jshintrc'
-    },
-
-    // Builds and run spec runner
-    jasmine: {
-      pivotal: {
-        src: Path.LIB,
-        options: {
-          vendor: [
-            'vendor/jquery/jquery-1.9.0.js',
-            'vendor/underscore/lodash.js',
-            'vendor/backbone/backbone.js'
-          ],
-          specs: Path.SPECS,
-          keepRunner: true,
-          helpers: 'vendor/jasmine-jquery/jasmine-jquery.js'
-        }
+      all: [
+        'Gruntfile.js',
+        'tasks/*.js',
+        '<%= nodeunit.tests %>'
+      ],
+      options: {
+        jshintrc: '.jshintrc'
       }
     },
 
-    // Buids and minifies the sources
-    uglify: {
-      min: {
-        files: {
-          'dist/tree.min.js': [Path.LIB]
-        }
-      },
-      concat: {
-        options: {
-          beautify: true,
-          compress: false
-        },
-        files: {
-          'dist/tree.js': [Path.LIB]
-        }
-      }
+    // Before generating any new files, remove any previously-created files.
+    clean: {
+      test: ['tmp']
+    },
+
+    // Unit tests.
+    nodeunit: {
+      tests: ['test/*_test.js']
     }
   });
 
-  // Load grunt tasks
-  grunt.loadNpmTasks('grunt-contrib-uglify');
+  // Actually load this plugin's task(s).
+  grunt.loadTasks('tasks');
+
+  // These plugins provide necessary tasks.
   grunt.loadNpmTasks('grunt-contrib-jshint');
-  grunt.loadNpmTasks('grunt-contrib-jasmine');
+  grunt.loadNpmTasks('grunt-contrib-clean');
+  grunt.loadNpmTasks('grunt-contrib-nodeunit');
 
-  // default build task
-  grunt.registerTask('default', 'test');
+  // Whenever the "test" task is run, first lint the files and clean the "tmp"
+  // dir, then run this plugin's task(s), then test the result.
+  grunt.registerTask('test', ['jshint', 'clean', 'copy', 'nodeunit']);
 
-  // Dev task
-  grunt.registerTask('test', ['jshint:all', 'jasmine:pivotal']);
-
-  // Build tasks
-  grunt.registerTask('build', ['jshint:all', 'jasmine:pivotal', 'uglify:min', 'uglify:concat']);
+  // By default, run all tests.
+  grunt.registerTask('default', ['test']);
 };
