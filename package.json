@@ -1,6 +1,6 @@
 {
   "name": "grunt-contrib-i18next",
-  "description": "Bundles resource files.",
+  "description": "Bundle language resource files for i18next.",
   "version": "0.0.1",
   "homepage": "https://github.com/sabarasaba/grunt-contrib-i18next",
   "author": {
