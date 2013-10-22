@@ -19,21 +19,22 @@ module.exports = function(grunt) {
         destFile,
         merged;
 
-    var jsonConcat = function(object1, object2) {
-      var key, a1, a2;
-      for (key in object2) {
-        if (object2.hasOwnProperty(key)) {
-          a2 = object2[key];
-          a1 = object1[key];
-          if (a1) {
-            a1.push.apply(a1, a2);
+    var mergeRecursive = function(obj1, obj2) {
+      for (var p in obj2) {
+        try {
+          // Property in destination object set; update its value.
+          if (obj2[p].constructor === Object) {
+            obj1[p] = mergeRecursive(obj1[p], obj2[p]);
           } else {
-            object1[key] = a2;
+            obj1[p] = obj2[p];
           }
+        } catch (e) {
+          // Property in destination object not set; create it and set its value.
+          obj1[p] = obj2[p];
         }
       }
 
-      return object1;
+      return obj1;
     };
 
     var iterateTroughFiles = function(abspath, rootdir, subdir, filename){
@@ -55,7 +56,7 @@ module.exports = function(grunt) {
           // read source file, read dest file. merge them. write it in dest file
           destFile = grunt.file.readJSON(outputFile);
 
-          merged = jsonConcat(destFile, originalFile);
+          merged = mergeRecursive(destFile, originalFile);
 
           grunt.file.write(outputFile, JSON.stringify(merged));
         }

@@ -1,0 +1,12 @@
+{
+  "en": {
+    "widget-a": {
+      "title": "Activities",
+      "has_been": "has been ",
+      "completed": "completed",
+      "added": "added",
+      "deleted": "deleted",
+      "reopened": "reopened"
+    }
+  }
+}
