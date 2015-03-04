@@ -1,5 +1,5 @@
 /*
- * grunt-contrib-i18next
+ * grunt-i18next
  * http://gruntjs.com/
  *
  * Copyright (c) 2013 Ignacio Rivas

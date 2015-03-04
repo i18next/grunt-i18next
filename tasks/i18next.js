@@ -1,10 +1,10 @@
 /*
- * grunt-contrib-i18next
+ * grunt-i18next
  * http://gruntjs.com/
  *
  * Copyright (c) 2013 Ignacio Rivas
  * Licensed under the MIT license.
- * https://github.com/sabarasaba/grunt-contrib-i18next/blob/master/LICENSE-MIT
+ * https://github.com/i18next/grunt-i18next/blob/master/LICENSE-MIT
  */
 
 module.exports = function(grunt) {
