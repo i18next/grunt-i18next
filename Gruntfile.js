@@ -36,9 +36,19 @@ module.exports = function(grunt) {
     },
 
     i18next: {
-      locales:{
+      spreadOut: {
         src: [Path.LOCALES],
         dest: Path.BUILD_PATH
+      },
+      together: {
+        cwd: 'test/sample/loc',
+        expand: true,
+        src: ['*/'],
+        include: ['**/*.json', '!**/ignore-this.json'],
+        rename: function(dest, src) {
+          return dest + src + 'translation-combined.json';
+        },
+        dest: Path.BUILD_PATH + '/'
       }
     },
 

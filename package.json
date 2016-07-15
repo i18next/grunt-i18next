@@ -1,12 +1,16 @@
 {
   "name": "grunt-i18next",
   "description": "Bundle language resource files for i18next.",
-  "version": "0.0.2",
+  "version": "0.1.0",
   "homepage": "https://github.com/i18next/grunt-i18next",
   "author": {
     "name": "Ignacio Rivas",
     "url": "http://github.com/sabarasaba"
   },
+  "contributors": [{
+    "name": "Martijn van de Rijdt",
+    "email": "martijn@enketo.org"
+  }],
   "repository": {
     "type": "git",
     "url": "git://github.com/i18next/grunt-i18next.git"
@@ -14,26 +18,21 @@
   "bugs": {
     "url": "https://github.com/i18next/grunt-i18next/issues"
   },
-  "licenses": [
-    {
-      "type": "MIT",
-      "url": "https://github.com/i18next/grunt-i18next/blob/master/LICENSE-MIT"
-    }
-  ],
+  "licenses": [{
+    "type": "MIT",
+    "url": "https://github.com/i18next/grunt-i18next/blob/master/LICENSE-MIT"
+  }],
   "engines": {
-    "node": ">= 0.8.0"
+    "node": ">= 0.10.0"
   },
   "scripts": {
     "test": "grunt test"
   },
   "devDependencies": {
-    "grunt-contrib-jshint": "~0.6.2",
-    "grunt-contrib-clean": "~0.5.0",
-    "grunt-contrib-nodeunit": "~0.2.1",
-    "grunt": "~0.4.0"
-  },
-  "peerDependencies": {
-    "grunt": "~0.4.0"
+    "grunt-contrib-jshint": "1.0.x",
+    "grunt-contrib-clean": "1.0.x",
+    "grunt-contrib-nodeunit": "1.0.x",
+    "grunt": "1.0.x"
   },
   "keywords": [
     "gruntplugin",

@@ -11,13 +11,12 @@ module.exports = function(grunt) {
   'use strict';
 
   grunt.registerMultiTask('i18next', 'Build locale files.', function() {
-    var that = this,
-        len = this.filesSrc.length,
-        outputDir,
-        outputFile,
-        originalFile,
-        destFile,
-        merged;
+    var that = this;
+    var x;
+    var y;
+
+    // default to all json files
+    this.data.include = this.data.include || '**/*.json';
 
     var mergeRecursive = function(obj1, obj2) {
       for (var p in obj2) {
@@ -37,10 +36,18 @@ module.exports = function(grunt) {
       return obj1;
     };
 
-    var iterateTroughFiles = function(abspath, rootdir, subdir, filename){
-      if (abspath.indexOf('/.svn') === -1){
-        outputDir = that.data.dest;
-        outputFile = outputDir + '/' + filename;
+    var iterateTroughFiles = function(abspath, rootdir, subdir, filename) {
+      var outputDir;
+      var outputFile;
+      var originalFile;
+      var destFile;
+      var merged;
+
+      if (grunt.file.isMatch(that.data.include, abspath)) {
+
+        // if data.rename is not defined the dest has to be a single file
+        outputFile = (that.data.rename) ? that.files[x].dest : that.data.dest + '/' + filename;
+        outputDir = outputFile.substring(0, outputFile.lastIndexOf('/'));
 
         // If output dir doesnt exists, then create it
         if (!grunt.file.exists(outputDir)) {
@@ -63,8 +70,10 @@ module.exports = function(grunt) {
       }
     };
 
-    for (var x = 0; x < len; x++) {
-      grunt.file.recurse(this.filesSrc[x], iterateTroughFiles);
+    for (x = 0; x < this.files.length; x++) {
+      for (y = 0; y < this.files[x].src.length; y++) {
+        grunt.file.recurse(this.files[x].src[y], iterateTroughFiles);
+      }
     }
   });
 };
