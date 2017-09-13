@@ -1,11 +1,11 @@
-var grunt = require('grunt');
+'use strict';
+//var grunt = require('grunt');
 var fs = require('fs');
 
 var path = 'test/sample/languages/';
 
 exports.spreadOut = {
   main: function(test) {
-    'use strict';
 
     test.expect(4);
 
@@ -18,11 +18,10 @@ exports.spreadOut = {
   },
 
   checkBundleContents: function(test) {
-    'use strict';
 
     test.expect(4);
 
-    var 
+    var
       enBundle = JSON.parse(fs.readFileSync(path + 'translation-en.json', 'utf8')),
       nestedBundle = JSON.parse(fs.readFileSync(path + 'nested-en.json', 'utf8'));
 
@@ -38,7 +37,6 @@ exports.spreadOut = {
 
 exports.together = {
   main: function(test) {
-    'use strict';
 
     test.expect(1);
 
@@ -48,7 +46,6 @@ exports.together = {
   },
 
   checkBundleContents: function(test) {
-    'use strict';
 
     test.expect(3);
 
@@ -57,6 +54,28 @@ exports.together = {
     test.equal(enBundle['widget-a'].title, 'Activities', 'The title of widget-a should be Activities.');
     test.equal(enBundle['widget-b'].has_been, 'has been ', 'The has_been attribute of widget-b should be "has been".');
     test.equal(enBundle['widget-c'], undefined, 'The file not included in the "include" property should be ignored.');
+
+    test.done();
+  }
+};
+
+exports.together_overwrite = {
+  main: function(test) {
+
+    test.expect(1);
+
+    test.ok(fs.existsSync(path + 'en/translation-combined-with-overwrite.json'), 'The -combined bundle should exist.');
+
+    test.done();
+  },
+
+  checkBundleContents: function(test) {
+
+    test.expect(1);
+
+    var enBundle = JSON.parse(fs.readFileSync(path + 'en/translation-combined-with-overwrite.json', 'utf8'));
+
+    test.equal(enBundle['widget-a'].title, 'Overwritten', 'The title of widget-a should be Overwritten.');
 
     test.done();
   }

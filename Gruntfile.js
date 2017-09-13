@@ -49,6 +49,16 @@ module.exports = function(grunt) {
           return dest + src + 'translation-combined.json';
         },
         dest: Path.BUILD_PATH + '/'
+      },
+      together_overwrite: {
+        cwd: 'test/sample/loc',
+        expand: true,
+        src: ['*/'],
+        include: ['**/translation.json', '**/translation-additions.json'],
+        rename: function(dest, src) {
+          return dest + src + 'translation-combined-with-overwrite.json';
+        },
+        dest: Path.BUILD_PATH + '/'
       }
     },
 

@@ -26,7 +26,7 @@ This multi task supports all the file mapping format Grunt supports. Please read
 This required property specifies the *folders* (not files!) the plugin should look for translation json files.
 
 ##### include
-This optional custom property specifies which files to include. If it is omitted, all json files will be included in the specified `src` folders. Any grunt globbing pattern can be used (array or string).
+This optional custom property specifies which files to include and in which order. If it is omitted, all json files will be included in the specified `src` folders. Any grunt globbing pattern can be used (array or string).
 
 ##### dest
 The destination folder.
@@ -55,7 +55,7 @@ i18next: {
 
 ### Complex Usage Example
 
-This task finds .json files in folders that are direct descendents of _src/languages_, excluding files called "ignore-this.json". The task merges all the files in each src folder separately. The resulting files have file names "translation-combined.json", and are placed under _application/languages_ in their own subfolders that match the src subfolders.
+This task finds .json files in folders that are direct descendants of _src/languages_, excluding files called "ignore-this.json". The task merges all the files in each src folder separately. The resulting files have file names "translation-combined.json", and are placed under _application/languages_ in their own subfolders that match the src subfolders.
 
 ```js
 i18next: {

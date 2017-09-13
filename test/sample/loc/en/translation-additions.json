@@ -1,10 +1,13 @@
 {
-  "widget-b": {
-    "title": "Activities",
-    "has_been": "has been ",
-    "completed": "completed",
-    "added": "added",
-    "deleted": "deleted",
-    "reopened": "reopened"
-  }
+    "widget-a": {
+        "title": "Overwritten"
+    },
+    "widget-b": {
+        "title": "Activities",
+        "has_been": "has been ",
+        "completed": "completed",
+        "added": "added",
+        "deleted": "deleted",
+        "reopened": "reopened"
+    }
 }
