@@ -74,6 +74,7 @@ i18next: {
 
 ## Release History
 
+* 2017-09-14 v0.2.0 Added support for processing files in a specific order
 * 2016-07-21 v0.1.0 Added support for include and rename
 * 2015-03-04 v0.0.2 Renamed to grunt-i18next
 * 2013-09-28 v0.0.1 First version

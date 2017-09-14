@@ -1,7 +1,5 @@
 'use strict';
-//var grunt = require('grunt');
 var fs = require('fs');
-
 var path = 'test/sample/languages/';
 
 exports.spreadOut = {

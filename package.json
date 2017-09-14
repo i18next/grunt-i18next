@@ -1,7 +1,7 @@
 {
   "name": "grunt-i18next",
   "description": "Bundle language resource files for i18next.",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "homepage": "https://github.com/i18next/grunt-i18next",
   "author": {
     "name": "Ignacio Rivas",
@@ -29,8 +29,8 @@
     "test": "grunt test"
   },
   "devDependencies": {
-    "grunt-contrib-jshint": "1.0.x",
-    "grunt-contrib-clean": "1.0.x",
+    "grunt-contrib-jshint": "1.1.x",
+    "grunt-contrib-clean": "1.1.x",
     "grunt-contrib-nodeunit": "1.0.x",
     "grunt": "1.0.x"
   },
